@@ -14,6 +14,7 @@ void Displaydot ( void ) {
 	glColor3ub(drand48()*255,drand48()*255,drand48()*255);
 	glVertex2i(drand48()*ww,drand48()*wh);
     }*/
+    glColor3ub(255,255,255);	
     glEnd();
     glFlush();
 }
@@ -23,7 +24,7 @@ void MyInit ( void ) {
     cout << glGetString(GL_VENDOR) <<"\n";
     glClearColor ( 1.0, 1.0, 1.0, 0.0 ); //white background    
     glColor3f(0.0f, 1.0f,0.0f); // green drawing colour
-    glPointSize(1.0); // 10 pixel dot!
+    glPointSize(10.0); // 10 pixel dot!
     glMatrixMode ( GL_PROJECTION );
     glLoadIdentity ( ) ;
     gluOrtho2D ( 0.0, (GLdouble)ww, 0.0, (GLdouble)wh );
