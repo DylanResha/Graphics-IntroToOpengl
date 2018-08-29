@@ -14,7 +14,14 @@ void Displaydot ( void ) {
 	glColor3ub(drand48()*255,drand48()*255,drand48()*255);
 	glVertex2i(drand48()*ww,drand48()*wh);
     }*/
-    glColor3ub(255,255,255);	
+    
+	glLineWidth(2.5);
+	glColor3ub(255,0,0);
+	glBegin(GL_LINES);
+	glVertex3f(400.0, 400.0, 0.0);
+	glVertex3f(500.0, 700.0, 0.0);
+	glEnd();
+	
     glEnd();
     glFlush();
 }
