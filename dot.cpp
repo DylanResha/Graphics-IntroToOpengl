@@ -8,22 +8,81 @@ GLsizei ww = 900 ; // initial width of window
 
 void Displaydot ( void ) {
     glClear ( GL_COLOR_BUFFER_BIT );
-    glBegin(GL_POINTS);
+    //glBegin(GL_POINTS);
     //glVertex2i(wh/2,ww/2); //display a point
     /*for(int i=0; i<100000; i++){
 	glColor3ub(drand48()*255,drand48()*255,drand48()*255);
 	glVertex2i(drand48()*ww,drand48()*wh);
     }*/
     
-	glLineWidth(2.5);
+	glLineWidth(3.0);
 	glColor3ub(255,0,0);
+/////////////////////////////////////////////////////////	
+//using GL_LINES
+  /*      glBegin(GL_LINES);
+	 glVertex2i(ww*(1.0/8.0), wh*(1.0/8.0));
+	 glVertex2i(ww*(7.0/8.0), wh*(1.0/8.0));
+	glEnd();
+
 	glBegin(GL_LINES);
-	glVertex3f(400.0, 400.0, 0.0);
-	glVertex3f(500.0, 700.0, 0.0);
+	 glVertex2i(ww*(7.0/8.0), wh*(1.0/8.0));
+	 glVertex2i(ww*(7.0/8.0), wh*(7.0/8.0));
+	glEnd();
+
+	glBegin(GL_LINES);
+	 glVertex2i(ww*(7.0/8.0), wh*(7.0/8.0));
+	 glVertex2i(ww*(1.0/8.0), wh*(7.0/8.0));
+	glEnd();
+
+	glBegin(GL_LINES);
+	 glVertex2i(ww*(1.0/8.0), wh*(7.0/8.0));
+	 glVertex2i(ww*(1.0/8.0), wh*(1.0/8.0));
 	glEnd();
 	
+	glFlush();*/
+/////////////////////////////////////////////////////////
+//using GL_POLYGON
+   /* glBegin(GL_POLYGON);
+	glVertex2i(ww*(1.0/8.0), wh*(1.0/8.0));
+	glVertex2i(ww*(7.0/8.0), wh*(1.0/8.0));
+	glVertex2i(ww*(7.0/8.0), wh*(7.0/8.0));
+	glVertex2i(ww*(1.0/8.0), wh*(7.0/8.0));
     glEnd();
-    glFlush();
+
+	glPolygonMode( GL_FRONT_AND_BACK, GL_LINE);
+	glFlush();*/
+/////////////////////////////////////////////////////////
+//using GL_LINE_LOOP
+    /*	glBegin(GL_LINE_LOOP);
+	 glVertex2i(ww*(1.0/8.0), wh*(1.0/8.0));
+	 glVertex2i(ww*(7.0/8.0), wh*(1.0/8.0));
+	 glVertex2i(ww*(7.0/8.0), wh*(7.0/8.0));
+	 glVertex2i(ww*(1.0/8.0), wh*(7.0/8.0));
+	glEnd();
+	glFlush();
+      */
+///////////////////////////////////////////////////////// 
+//using GL_TRIANGLE_FAN
+	glBegin(GL_TRIANGLE_FAN);
+	 glVertex2i(ww*(1.0/8.0), wh*(1.0/8.0));	
+	 glVertex2i(ww*(6.5/8.0), wh*(1.0/8.0));
+	 glVertex2i(ww*(6.5/8.0), wh*(6.5/8.0));	
+	 glVertex2i(ww*(1.0/8.0), wh*(6.5/8.0));
+
+	 glVertex2i(ww*(2.0/8.0), wh*(7.0/8.0));
+	 glVertex2i(ww*(6.0/8.0), wh*(7.0/8.0)); 
+
+	 glVertex2i(ww*(7.0/8.0), wh*(6.0/8.0));
+	 glVertex2i(ww*(7.0/8.0), wh*(2.0/8.0));
+
+	 glVertex2i(ww*(2.0/8.0), wh*(0.5/8.0));
+	 glVertex2i(ww*(6.0/8.0), wh*(0.5/8.0));
+		
+	 glVertex2i(ww*(0.5/8.0), wh*(2.0/8.0));
+	 glVertex2i(ww*(0.5/8.0), wh*(6.0/8.0));
+		 
+	glEnd();
+	glFlush();
 }
 
 void MyInit ( void ) {
